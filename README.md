@@ -1,3 +1,11 @@
+Linux shell script work summary
+====
+
+> 자세한 각 명령어에 대한 설명은 생략합니다
+> 각 명령어에 대한 자세한 설명은 추가 검색으로
+
+----
+
 centos maria db install on virtual box
 ====
 
