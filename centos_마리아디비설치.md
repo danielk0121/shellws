@@ -56,6 +56,7 @@ mysql_secure_installation
 # root 유저 외부에서 로그인 가능하도록 수정
 ```
 mysql -u root -p
+use mysql ;
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password' ;
 flush privileges ;
 ```
