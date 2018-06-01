@@ -1,6 +1,7 @@
-# centos maria db install on virtual box
+centos maria db install on virtual box
+====
 
------
+----
 
 
 ### 방화벽 끄기
