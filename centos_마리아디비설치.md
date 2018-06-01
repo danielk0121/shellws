@@ -1,3 +1,13 @@
+# 관련 키워드
+```
+centos 6.x
+virtual box
+maria db
+sshd
+yum repository
+```
+
+
 # 방화벽 끄기
 ```
 service iptables stop
