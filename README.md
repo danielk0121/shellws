@@ -6,10 +6,10 @@ centos maria db install on virtual box
 ============
 
 1. 방화벽 끄기
-"`
+\'
 service iptables stop
 chkconfig --level 345 iptables off
-"`
+\'
 
 ### ssh dns 끄기
 echo 'UseDNS no' >> /etc/ssh/sshd_config
