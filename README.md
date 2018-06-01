@@ -1,13 +1,15 @@
-# shellws
 linux shell script workspace
 
+============
 
-# centos maria db install on virtual box
-## 방화벽 끄기
+
+centos maria db install on virtual box
+
+- 방화벽 끄기
 service iptables stop
 chkconfig --level 345 iptables off
 
-## ssh dns 끄기
+### ssh dns 끄기
 echo 'UseDNS no' >> /etc/ssh/sshd_config
 service sshd restart
 
