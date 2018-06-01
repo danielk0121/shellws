@@ -1,9 +1,7 @@
 linux shell script workspace
-============
 -----
 
 centos maria db install on virtual box
-============
 -----
 
 1. 방화벽 끄기
