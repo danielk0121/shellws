@@ -20,7 +20,7 @@ service sshd restart
 
 
 ### yum repo 변경
-> [제타위키 ](https://zetawiki.com/wiki/Yum_Daum_%EC%A0%80%EC%9E%A5%EC%86%8C_%EC%84%A4%EC%A0%95)
+> [제타위키_](https://zetawiki.com/wiki/Yum_Daum_%EC%A0%80%EC%9E%A5%EC%86%8C_%EC%84%A4%EC%A0%95)
 ```
 bzip2 /etc/yum.repos.d/CentOS-*.repo
 
