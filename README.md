@@ -6,14 +6,17 @@ centos maria db install on virtual box
 ============
 
 1. 방화벽 끄기
+-----
 service iptables stop
 chkconfig --level 345 iptables off
 
 2. ssh dns 끄기
+-----
 echo 'UseDNS no' >> /etc/ssh/sshd_config
 service sshd restart
 
 3. yum repo 변경
+-----
 bzip2 /etc/yum.repos.d/CentOS-*.repo
 
 
