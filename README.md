@@ -6,7 +6,7 @@ centos maria db install on virtual box
 
 -----
 
-# 방화벽 끄기
+### 방화벽 끄기
 ```
 service iptables stop
 chkconfig --level 345 iptables off
