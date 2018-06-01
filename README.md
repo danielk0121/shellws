@@ -8,16 +8,17 @@ service iptables stop
 chkconfig --level 345 iptables off
 ```
 
+
 ### ssh dns 끄기
-부연 설명1
-부연 설명2
-부연 설명3
+> putty 등으로 ssh 사용시 빠르게 하기 위해서
 ```
 echo 'UseDNS no' >> /etc/ssh/sshd_config
 service sshd restart
 ```
 
+
 ### yum repo 변경
+> [참조](https://zetawiki.com/wiki/Yum_Daum_%EC%A0%80%EC%9E%A5%EC%86%8C_%EC%84%A4%EC%A0%95)
 ```
 bzip2 /etc/yum.repos.d/CentOS-*.repo
 
@@ -41,6 +42,7 @@ baseurl = http://yum.mariadb.org/10.2/centos6-amd64
 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
 gpgcheck=1' > /etc/yum.repos.d/MariaDB.repo
 ```
+
 
 ### 마리아 디비 설치
 ```
