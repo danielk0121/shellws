@@ -1,24 +1,24 @@
-linux shell script workspace
-
------
-
 centos maria db install on virtual box
+====
 
------
+----
 
-#### 방화벽 끄기
+### 방화벽 끄기
 ```
 service iptables stop
 chkconfig --level 345 iptables off
 ```
 
-2. ssh dns 끄기
+### ssh dns 끄기
+부연 설명
+부연 설명
+부연 설명
 ```
 echo 'UseDNS no' >> /etc/ssh/sshd_config
 service sshd restart
 ```
 
-3. yum repo 변경
+### yum repo 변경
 ```
 bzip2 /etc/yum.repos.d/CentOS-*.repo
 
@@ -43,16 +43,19 @@ gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
 gpgcheck=1' > /etc/yum.repos.d/MariaDB.repo
 ```
 
-## 마리아 디비 설치
+### 마리아 디비 설치
+```
 yum update -y
 yum install MariaDB-server MariaDB-client -y
+```
 
 
-## 마리아 디비 실행
+### 마리아 디비 실행
+```
 service mysql start
 chkconfig --level 35 mysql on
 service mysql status
-
+```
 
 
 
