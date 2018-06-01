@@ -1,5 +1,4 @@
 centos maria db install on virtual box
-====
 
 ----
 
@@ -10,9 +9,9 @@ chkconfig --level 345 iptables off
 ```
 
 ### ssh dns 끄기
-부연 설명
-부연 설명
-부연 설명
+부연 설명1
+부연 설명2
+부연 설명3
 ```
 echo 'UseDNS no' >> /etc/ssh/sshd_config
 service sshd restart
