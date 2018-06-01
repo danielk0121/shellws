@@ -13,6 +13,7 @@ service sshd restart
 
 
 # yum repo 변경
+> 상세 설명은 제타 위키 참조
 ```
 bzip2 /etc/yum.repos.d/CentOS-*.repo
 
