@@ -2,7 +2,7 @@
 ```
 centos 6.x
 virtual box
-maria db
+maria db 10.2
 sshd
 yum repository
 ```
