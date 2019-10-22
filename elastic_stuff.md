@@ -54,3 +54,50 @@ GET myindex/_search
   ...
 }
 ```
+
+### count api
+```
+# 28 124 451
+GET outputlog-20191010/_count
+
+# 28 112 457
+GET outputlog-20191010/_search
+{
+  "track_total_hits": true
+}
+
+# 28 112 457
+GET output*/_count
+{
+  "query": {
+    "bool": {
+      "must": [
+        {"range":{"logtime":{ 
+          "gte": "20191010_000000", "lte": "20191010_235959" 
+        }}}, 
+        { "terms": { "resBody.platformCodeWM": ["W","M"], "boost": 1 } }, 
+        { "terms": { "resBody.ad": ["SR","CW"], "boost": 1 } }
+      ]
+    }
+  }
+}
+
+# 8539
+GET output*/_count
+{
+  "query": {
+    "bool": {
+      "must_not": [
+        {"range":{"logtime":{ 
+          "gte": "20191010_000000", "lte": "20191010_235959" 
+        }}}, 
+        { "terms": { "resBody.platformCodeWM": ["W","M"], "boost": 1 } }, 
+        { "terms": { "resBody.ad": ["SR","CW"], "boost": 1 } }
+      ]
+    }
+  }
+}
+
+# 28,124,451 - 28,112,457 = 11,994 
+# 11,994 vs 8,539  ??? ==> 확인이 필요함
+```
