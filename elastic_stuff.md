@@ -101,3 +101,8 @@ GET output*/_count
 # 28,124,451 - 28,112,457 = 11,994 
 # 11,994 vs 8,539  ??? ==> 확인이 필요함
 ```
+
+### response body 일부분만 응답받기 - filter_path url parameter 사용
+```
+GET output*/_search?filter_path=aggregations.count_groupby.buckets.doc_count
+```
