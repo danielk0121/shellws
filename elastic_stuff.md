@@ -106,3 +106,69 @@ GET output*/_count
 ```
 GET output*/_search?filter_path=aggregations.count_groupby.buckets.doc_count
 ```
+
+### painless script 에러 - 필드가 없는 doc 때문에 발생
+```
+POST outlog-20191025/_search
+{
+  "size": 0, 
+  "aggs": {
+    "a0": {
+      "terms": {
+        "script": {
+          "lang": "painless",
+          "source": """
+            if(doc['resBody.itlTpCode'].size()!=0) {       <---- 처리 안해주면 아래줄 .value 코드에서 에러 난다
+              String itlTpCode = doc['resBody.itlTpCode'].value;
+              if("01".equals(itlTpCode)) return 'mobon';
+              else return 'openRTB';
+            }
+            return 'notExists';
+          """
+        }, 
+        "size": 10
+      }
+    }
+  }
+}
+
+{
+  "took" : 6878,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 2,
+    "successful" : 2,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 10000,
+      "relation" : "gte"
+    },
+    "max_score" : null,
+    "hits" : [ ]
+  },
+  "aggregations" : {
+    "a0" : {
+      "doc_count_error_upper_bound" : 0,
+      "sum_other_doc_count" : 0,
+      "buckets" : [
+        {
+          "key" : "mobon",
+          "doc_count" : 27610880
+        },
+        {
+          "key" : "openRTB",
+          "doc_count" : 18152668
+        },
+        {
+          "key" : "notExists",
+          "doc_count" : 4135
+        }
+      ]
+    }
+  }
+}
+
+```
