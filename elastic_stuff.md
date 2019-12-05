@@ -172,3 +172,42 @@ POST outlog-20191025/_search
 }
 
 ```
+
+### bucket_sort 에서 doc_count 사용하는 방법
+```
+GET outlog-20191204/_search?typed_keys
+{
+  "size" : 0,
+  "_source" : false,
+  "stored_fields" : "_none_",
+  "query" : { "term" : { "resBody.userId" : { "value" : "ssfshop", "boost" : 1.0 } } },
+  "aggregations" : {
+    "rcmdTypeCode": {
+      "terms": {
+        "field": "resBody.rcmdInfoList.rcmdTypeCode",
+        "size": 10
+      }, 
+      "aggs": {
+        "userId": {
+          "terms": {
+            "field": "resBody.userId",
+            "size": 1
+          }, 
+          "aggs": {
+            "rcmdPcode": {
+              "terms": {
+                "field": "resBody.rcmdInfoList.pcode", 
+                "size": 1000
+              }
+            }, 
+            
+            // _count 내장 필드가 버킷 집계 결과에서 doc_count 를 의미함
+            "cntdesc":{"bucket_sort":{"sort":[{"_count": {"order": "desc"}}]}}
+          }
+        }
+      }
+      
+    }
+  }
+}
+```
