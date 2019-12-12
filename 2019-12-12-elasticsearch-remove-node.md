@@ -22,12 +22,14 @@ curl -XPUT localhost:9200/_settings -H 'Content-type: application/json' -d \
 
 
 # 제거할 노드 ip 추가
+```
 curl -XPUT -H "Content-type: application/json" http://localhost:9200/_cluster/settings -d \
 '{
   "transient": {
     "cluster.routing.allocation.exclude._ip": "192.168.100.107,192.168.100.106"
   }
 }'
+```
 
 
 # 클러스터 설정 확인
