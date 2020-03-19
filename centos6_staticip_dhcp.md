@@ -1,3 +1,7 @@
+## virtual-box 설정
+- 각 vm NIC 설정을 'NAT' 가 아니라 'NAT 네트워크' 로 설정해야 한다
+- VM 설정 > 네트워크 > 어댑터2 > 다음에 연결됨 > NAT 네트워크
+
 ## route 명령어로 default route 설정이 되어 있는지 확인해봐야 한다
 ```
 [root@localhost ~]# route
