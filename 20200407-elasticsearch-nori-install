@@ -15,4 +15,30 @@ ls -al elasticsearch-6.4.3/plugins/analysis-nori
 
 # 설치 테스트(nori analyzer 찾을 수 없다는 에러 발생시 엘라스틱 서치 노드 재시작)
 curl -H 'Content-Type:application/json' -X POST http://localhost:9203/_analyze?pretty -d '{"analyzer":"nori","text":"노리 테스트 입니다."}'
+
+{
+  "tokens" : [
+    {
+      "token" : "노리",
+      "start_offset" : 0,
+      "end_offset" : 2,
+      "type" : "word",
+      "position" : 0
+    },
+    {
+      "token" : "테스트",
+      "start_offset" : 3,
+      "end_offset" : 6,
+      "type" : "word",
+      "position" : 1
+    },
+    {
+      "token" : "이",
+      "start_offset" : 7,
+      "end_offset" : 10,
+      "type" : "word",
+      "position" : 2
+    }
+  ]
+}
 ```
