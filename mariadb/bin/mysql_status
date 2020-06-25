@@ -1,0 +1,1 @@
+while true; do sleep 2; clear; date; ps -ef | grep -v grep | grep -v ssh | grep -v bash | grep mysql; netstat -anopt | grep 3306; done
